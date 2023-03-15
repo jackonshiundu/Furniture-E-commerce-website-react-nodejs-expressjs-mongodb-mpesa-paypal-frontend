@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'http://localhost:5000/api/v1' });
+const API = axios.create({
+  baseURL: 'https://furniture-website-server2.onrender.com/api/v1',
+});
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem('Profile')) {
@@ -21,7 +23,7 @@ export const deleteUser = (id) => API.delete(`/users/delete/${id}`);
 export const getAllProducts = () =>
   API.get('/products/getallproductsforclients');
 export const getSingleProduct = (id) =>
-API.get(`/products/getsingleproduct/${id}`);
+  API.get(`/products/getsingleproduct/${id}`);
 export const getOrder = (id) => API.get(`/payments/getorders/${id}`);
 /* export const getfilteredproducts = ({}) =>
   API.get(`/products/getsingleproduct/?search=${}&rating=${}&sort=${},${}}`); */
